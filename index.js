@@ -13,12 +13,14 @@ const { notificationRouter } = require("./routes/notification.route");
 const { addNotification, remove } = require("./controllers/Notification.controller");
 require('dotenv').config();
 
-const io = require("socket.io")(8800, {
-    cors: {
-        origin: "https://assess-omega.vercel.app/",
-    },
-});
+// const io = require("socket.io")(8800, {
+//     cors: {
+//         origin: "https://assess-omega.vercel.app/",
+//     },
+// });
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {})
 
 
 mongoose.connect(process.env.MONGODB_URL).then(() => { console.log("connected") }).catch(() => { console.log("err") });
