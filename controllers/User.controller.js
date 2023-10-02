@@ -185,6 +185,7 @@ const userLogin = async (req, res) => {
             return res.status(400).json({ msg: "Invalid Credentials" })
         }
     } catch (err) {
+        console.log(err)
         return res.status(500).json({ msg: "Something went wrong" })
     }
 }
@@ -420,8 +421,8 @@ const payment = async (req, res) => {
             payment_method_types: ['card'],
             line_items: line_items,
             mode: 'payment',
-            success_url: `http://localhost:3000/signup/success`,
-            cancel_url: `http://localhost:3000/signup`,
+            success_url: `https://assess-omega.vercel.app/signup/success`,
+            cancel_url: `https://assess-omega.vercel.app//signup`,
         });
         if (!session) {
             res.status(500).send({ error: "Something went wrong" })

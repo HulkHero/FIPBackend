@@ -15,7 +15,7 @@ require('dotenv').config();
 
 const io = require("socket.io")(8800, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://assess-omega.vercel.app/",
     },
 });
 const app = express();
